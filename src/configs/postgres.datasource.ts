@@ -11,6 +11,7 @@ export const PostgresDataSource = new DataSource({
   database: config.POSTGRES_DB,
   synchronize: true,
   logging: true,
+  entities: [User],
   subscribers: [],
   migrations: [],
 });
