@@ -1,18 +1,23 @@
 import { RequestHandler } from "express";
-import { AuthService, UserService } from "../services/index.ts";
+import { AuthService } from "../services/index.ts";
+import { SignupDto, SigninDto } from "../common/dto/index.ts";
 
 export class AuthController {
   authService: AuthService;
-  userService: UserService;
 
-  constructor(authService: AuthService, userService: UserService) {
+  constructor(authService: AuthService) {
     this.authService = authService;
-    this.userService = userService;
   }
 
-  signin: RequestHandler = (req, res) => {
-    res.json({ user: this.userService.getUser() });
+  signup: RequestHandler<{}, {}, SignupDto> = async (req, res) => {
+    await this.authService.signup(req.body);
+    res.json({ success: true });
   };
 
-  signup() {}
+  signin: RequestHandler<{}, {}, SigninDto> = async (req, res) => {
+    const { accessToken, refreshToken } = await this.authService.signin(
+      req.body
+    );
+    res.json({ success: true, data: { accessToken, refreshToken } });
+  };
 }

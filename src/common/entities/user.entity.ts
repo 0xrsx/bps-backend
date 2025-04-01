@@ -1,7 +1,8 @@
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { BaseEntity } from "./base.entity.ts";
 
 @Entity()
-export class User {
+export class User extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -10,6 +11,9 @@ export class User {
 
   @Column()
   lastName: string;
+
+  @Column({ unique: true })
+  email: string;
 
   @Column()
   address: string;

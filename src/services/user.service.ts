@@ -1,3 +1,4 @@
+import { SignupDto } from "../common/dto/index.ts";
 import { UserRepository } from "../repositories/index.ts";
 
 export class UserService {
@@ -7,26 +8,25 @@ export class UserService {
     this.repo = userRepo;
   }
 
-  createUser() {
+  async createUser(dto: SignupDto) {
+    const isExists = await this.repo.exists({ where: { email: dto.email } });
+    if (isExists) {
+      throw "This email is not available";
+    }
+
     const entity = this.repo.create({
-      firstName: "testFirstName",
-      lastName: "testLastName",
-      address: "test some address",
-      phoneNumber: "0912345678",
-      password: "should be hashed",
+      firstName: dto.firstName,
+      lastName: dto.lastName,
+      address: dto.address,
+      phoneNumber: dto.phoneNumber,
+      password: dto.password,
+      email: dto.email,
     });
 
-    return this.repo.save(entity);
+    return await this.repo.save(entity);
   }
 
-  getUser() {
-    const entity = this.repo.create({
-      firstName: "testFirstName",
-      lastName: "testLastName",
-      address: "test some address",
-      phoneNumber: "0912345678",
-      password: "should be hashed",
-    });
-    return entity;
+  getUserByEmail(email: string) {
+    return this.repo.findOneBy({ email });
   }
 }

@@ -1,3 +1,3 @@
-import { authService, userService } from "../services/index.ts";
+import { authService } from "../services/index.ts";
 import { AuthController } from "./auth.controller.ts";
-export const authController = Object.freeze(new AuthController(authService, userService));
+export const authController = Object.freeze(new AuthController(authService));
