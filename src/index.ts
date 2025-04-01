@@ -13,6 +13,10 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api", router);
 
+app.use((req, res, next) => {
+  res.status(404).json({message: `[${req.method}] ${req.url} Not found`})
+});
+
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);
   PostgresDataSource.initialize()
