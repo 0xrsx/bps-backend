@@ -1,1 +1,1 @@
-export { JwtMiddleware } from "./jwt.middleware.ts";
+export { JwtMiddleware } from "./jwt.middleware";

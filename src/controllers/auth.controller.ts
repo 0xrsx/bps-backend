@@ -1,6 +1,6 @@
 import { RequestHandler } from "express";
-import { AuthService } from "../services/index.ts";
-import { SignupDto, SigninDto } from "../common/dto/index.ts";
+import { AuthService } from "../services";
+import { SignupDto, SigninDto } from "../common/dto";
 
 export class AuthController {
   authService: AuthService;

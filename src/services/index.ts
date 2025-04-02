@@ -1,9 +1,9 @@
-import { AuthService } from "./auth.service.ts";
-import { userRepository } from "../repositories/index.ts";
-import { UserService } from "./user.service.ts";
+import { AuthService } from "./auth.service";
+import { userRepository } from "../repositories";
+import { UserService } from "./user.service";
 
-export { type AuthService } from "./auth.service.ts";
-export { type UserService } from "./user.service.ts";
+export { type AuthService } from "./auth.service";
+export { type UserService } from "./user.service";
 
 export const userService = Object.freeze(new UserService(userRepository));
 export const authService = Object.freeze(new AuthService(userService));

@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
-import { config } from "../configs/config.ts";
-import { userRepository } from "../repositories/index.ts";
+import { config } from "../configs/config";
+import { userRepository } from "../repositories";
 import { RequestHandler } from "express";
 
 export const JwtMiddleware: RequestHandler = async (req, res, next) => {

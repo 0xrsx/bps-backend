@@ -1,9 +1,9 @@
 import "reflect-metadata";
 
 import express from "express";
-import router from "./routes/index.js";
-import { PostgresDataSource } from "./configs/postgres.datasource.ts";
-import { config } from "./configs/config.ts";
+import router from "./routes/index";
+import { PostgresDataSource } from "./configs/postgres.datasource";
+import { config } from "./configs/config";
 
 const app = express();
 const port = config.PORT;

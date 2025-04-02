@@ -1,5 +1,5 @@
-import { SignupDto } from "../common/dto/index.ts";
-import { UserRepository } from "../repositories/index.ts";
+import { SignupDto } from "../common/dto";
+import { UserRepository } from "../repositories";
 
 export class UserService {
   repo: UserRepository;

@@ -1,6 +1,6 @@
 import { DataSource } from "typeorm";
-import { User } from "../common/entities/index.ts";
-import { config } from "./config.ts";
+import { config } from "./config";
+import { User } from "../common/entities/user.entity";
 
 export const PostgresDataSource = new DataSource({
   type: "postgres",

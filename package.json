@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
-  "type": "module",
   "scripts": {
     "build": "tsc",
-    "dev": "node --watch --loader=ts-node/esm src/index.ts",
-    "start": "node dist/index.js"
+    "start": "npm run build && node dist/index.js",
+    "dev": "nodemon",
+    "migration:generate": "npm run build && typeorm migration:generate -d ./dist/configs/postgres.datasource.js ./src/migrations/$npm_config_name"
   },
   "author": "",
   "license": "ISC",

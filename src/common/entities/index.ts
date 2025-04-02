@@ -1,1 +1,1 @@
-export { User } from "./user.entity.ts";
+export { User } from "./user.entity";

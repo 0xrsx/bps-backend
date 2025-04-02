@@ -1,7 +1,7 @@
 import express from "express";
-import authRouter from "./auth.route.ts";
-import userRouter from "./user.route.ts";
-import { JwtMiddleware } from "../middleware/index.ts";
+import authRouter from "./auth.route";
+import userRouter from "./user.route";
+import { JwtMiddleware } from "../middleware";
 
 const router = express.Router();
 

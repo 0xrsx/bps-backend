@@ -1,5 +1,5 @@
 import { RequestHandler } from "express";
-import { UserService } from "../services/index.ts";
+import { UserService } from "../services";
 
 export class UserController {
   userService: UserService;

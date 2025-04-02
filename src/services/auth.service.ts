@@ -1,9 +1,9 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import { User } from "../common/entities/index.ts";
-import { config } from "../configs/config.ts";
-import { SigninDto, SignupDto } from "../common/dto/index.ts";
-import { UserService } from "./index.ts";
+import { User } from "../common/entities";
+import { config } from "../configs/config";
+import { SigninDto, SignupDto } from "../common/dto";
+import { UserService } from ".";
 
 export class AuthService {
   userService: UserService;
