@@ -21,6 +21,6 @@ export class User extends BaseEntity {
   @Column()
   phoneNumber: string;
 
-  @Column()
+  @Column({ select: false })
   password: string;
 }
