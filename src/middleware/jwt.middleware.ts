@@ -1,13 +1,9 @@
-import { Response, Request, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 import { config } from "../configs/config.ts";
 import { userRepository } from "../repositories/index.ts";
+import { RequestHandler } from "express";
 
-export const JwtMiddleware = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
+export const JwtMiddleware: RequestHandler = async (req, res, next) => {
   try {
     if (!req.headers["authorization"]) {
       res.sendStatus(401);
