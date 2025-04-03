@@ -1,6 +1,5 @@
 import { DataSource } from "typeorm";
 import { config } from "./config";
-import { User } from "../common/entities/user.entity";
 
 export const PostgresDataSource = new DataSource({
   type: "postgres",
@@ -12,7 +11,7 @@ export const PostgresDataSource = new DataSource({
   url: config.POSTGRES_URL,
   synchronize: false,
   logging: false,
-  entities: [User],
   subscribers: [],
-  migrations: ['dist/migrations/*.js'],
+  migrations: ["dist/migrations/*.js"],
+  entities: [__dirname + '/../common/entities/*.entity{.ts,.js}'],
 });

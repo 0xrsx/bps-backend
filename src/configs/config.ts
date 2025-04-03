@@ -13,4 +13,8 @@ export const config = {
   POSTGRES_PORT: parseInt(process.env.POSTGRES_PORT || "5432"),
   JWT_ACCESS_TOKEN_SECRET: process.env.JWT_ACCESS_TOKEN_SECRET || "",
   JWT_REFRESH_TOKEN_SECRET: process.env.JWT_REFRESH_TOKEN_SECRET || "",
+  TUYA_BASE_URL: process.env.TUYA_BASE_URL || "",
+  TUYA_ACCESS_KEY: process.env.TUYA_ACCESS_KEY || "",
+  TUYA_SECRET_KEY: process.env.TUYA_SECRET_KEY || "",
+  TUYA_DEVICE_ID: process.env.TUYA_DEVICE_ID || "",
 };

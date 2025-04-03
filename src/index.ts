@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api", router);
 
 app.use((req, res, next) => {
-  res.status(404).json({message: `[${req.method}] ${req.url} Not found`})
+  res.status(404).json({ message: `[${req.method}] ${req.url} Not found` });
 });
 
 app.listen(port, () => {
@@ -22,6 +22,7 @@ app.listen(port, () => {
   PostgresDataSource.initialize()
     .then(() => {
       // here you can start to work with your database
+      console.log("Database connected!");
     })
     .catch((error) => console.log("PostgresDataSource Error: ", error));
 });
