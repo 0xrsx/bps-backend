@@ -1,6 +1,7 @@
 import "reflect-metadata";
 
 import express from "express";
+import cors from "cors";
 import router from "./routes/index";
 import { PostgresDataSource } from "./configs/postgres.datasource";
 import { config } from "./configs/config";
@@ -10,6 +11,11 @@ const port = config.PORT;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
+
+app.get("/health", (req, res) => {
+  res.json({ success: true, data: new Date().toISOString() });
+});
 
 app.use("/api", router);
 
