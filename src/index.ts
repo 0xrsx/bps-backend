@@ -17,6 +17,14 @@ app.get("/health", (req, res) => {
   res.json({ success: true, data: new Date().toISOString() });
 });
 
+app.use((req, res, next) => {
+  const _req = `[${req.method.toUpperCase()}]${req.url} ${JSON.stringify(
+    req.body
+  )}`;
+  console.log(_req);
+  next();
+});
+
 app.use("/api", router);
 
 app.use((req, res, next) => {
