@@ -48,6 +48,16 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            "PORT=${{ secrets.PORT }}" |
+            "POSTGRES_URL=${{ secrets.POSTGRES_URL }}" |
+            "JWT_ACCESS_TOKEN_SECRET=${{ secrets.JWT_ACCESS_TOKEN_SECRET }}" |
+            "JWT_REFRESH_TOKEN_SECRET=${{ secrets.JWT_REFRESH_TOKEN_SECRET }}" |
+            "TUYA_BASE_URL=${{ secrets.TUYA_BASE_URL }}" |
+            "TUYA_ACCESS_KEY=${{ secrets.TUYA_ACCESS_KEY }}" |
+            "TUYA_SECRET_KEY=${{ secrets.TUYA_SECRET_KEY }}" |
+            "TUYA_DEVICE_ID=${{ secrets.TUYA_DEVICE_ID }}"
+            
 
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v2
